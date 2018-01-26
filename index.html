@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>El universo -  Dasafio 1 - Responsive design</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+	<link rel="stylesheet" type="text/css" href="css/estilos.css">
+	<script type="text/javascript" src="js/scripts.js"></script>
+</head>
+<body>
+	<!-- <div class="title"><span>El sistema solar</span></div> -->
+	<div class="display background">
+		<div class="width-display"><p>Tamaño de ventana:</p><span id="value"></span></div>
+		<div id="container" class="container">
+			<div class="item"><p>Sol</p><div class="display sun transition"></div></div>
+			<div class="item"><p>Mercurio</p><div class="display mercury transition"></div></div>
+			<div class="item"><p>Venus</p><div class="display venus transition"></div></div>
+			<div class="item"><p>Tierra</p><div class="display earth transition"></div></div>
+			<div class="item"><p>Marte</p><div class="display mars transition"></div></div>
+			<div class="item"><p>Júpiter</p><div class="display jupiter transition"></div></div>
+			<div class="item"><p>Saturno</p><div class="display saturn transition"></div></div>
+			<div class="item"><p>Urano</p><div class="display uranus transition"></div></div>
+			<div class="item"><p>Neptuno</p><div class="display neptune transition"></div></div>
+			<div class="item"><p>Plutón</p><div class="display pluton transition"></div></div>
+		</div>
+	</div>
+
+<script type="text/javascript">	
+
+
+	var width = window.addEventListener('resize', pantalla);
+	var value = document.getElementById('value');
+	var container = document.getElementById('container');
+	// var nuevo, anterior, ref;
+	// anterior=0;
+	// ref=1;
+
+	function pantalla() {
+		width = window.innerWidth;
+		console.log('Width: ' + width);
+		value.innerHTML = ' '+ width + 'px';
+		
+		// nuevo=width;
+		
+
+		// if (nuevo<anterior){
+			// ref=ref*1.2;
+			// container.style.width = ref + 'px';
+			// console.log("si es: " + container.style.width);
+		// }
+		
+
+		// anterior=width;
+		
+	}
+
+	pantalla();
+
+</script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
+	<script>
+	  WebFont.load({
+	    google: {
+	      families: ['Source Code Pro']
+	    }
+	  });
+	</script>
+
+</body>
+</html>
