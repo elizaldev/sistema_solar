@@ -29,7 +29,13 @@ body {
 	background-size: cover;
 	background-attachment: fixed;
 	background-position: center center;
-	overflow: scroll;
+	overflow: hidden;
+}
+.line {
+	position: absolute;
+	border-left: solid 1px red;
+	height: 100%;
+	left: 50%;
 }
 .width-display {
 	position: fixed;
@@ -50,15 +56,15 @@ body {
 	display: inline-block;
 }
 .transition {
-	transition: .3s;
+	transition: 1s;
 }
 .container {
 	display: flex;
 	justify-content: space-around;
 	height: 100%;
 	width: 100%;
-	overflow: hidden;
 	transition: 1s;
+	/*overflow: scroll;*/
 }
 .container p {
 	position: absolute;
@@ -84,7 +90,7 @@ body {
 	border-right: 1px;
 	border-top: 0;
 	border-bottom: 0;
-	border-color: #161616;
+	border-color: #005956;
 	border-style: solid;
 	/*background: skyblue;*/
 }
@@ -214,6 +220,7 @@ body {
 	.venus {
 	width: 4px;
 	height: 4px;
+	margin-right: 100px;
 	}
 	.earth {
 	width: 5px;
@@ -238,10 +245,18 @@ body {
 	.neptune {
 	width: 19px;
 	height: 19px;
+	display: none;
 	}
 	.pluton {
 	width: 2px;
 	height: 2px;
+	display: none;
+	}
+	.item:nth-child(9) {
+	visibility: hidden;
+	}
+	.item:nth-child(10) {
+	visibility: hidden;
 	}
 }
 
@@ -253,6 +268,7 @@ body {
 	.sun {
 	width: 690px;
 	height: 690px;
+	display: none;
 	}
 	.mercury {
 	width: 3px;
@@ -261,6 +277,7 @@ body {
 	.venus {
 	width: 7px;
 	height: 7px;
+	margin-right: 200px;
 	}
 	.earth {
 	width: 8px;
@@ -277,18 +294,28 @@ body {
 	.saturn {
 	width: 103px;
 	height: 103px;
+	display: none;
 	}
 	.uranus {
 	width: 34px;
 	height: 34px;
+	display: none;
 	}
 	.neptune {
 	width: 31px;
 	height: 31px;
+	display: none;
 	}
 	.pluton {
 	width: 3px;
 	height: 3px;
+	display: none;
+	}
+	.item:nth-child(9) {
+	display: none;
+	}
+	.item:nth-child(10) {
+	display: none;
 	}
 }
 
@@ -386,19 +413,23 @@ body {
 
 @media screen and (max-width: 1000px) {
 	.container {
-	width: 1049%;
+	width: 350%;
+	/*width: 1049%;*/
 	}
 	.sun {
-	width: 2879px;
-	height: 2879px;
+	/*width: 2879px;
+	height: 2879px;*/
+	display: none;
 	}
 	.mercury {
-	width: 14px;
-	height: 14px;
+	/*width: 14px;
+	height: 14px;*/
+	display: none;
 	}
 	.venus {
-	width: 29px;
-	height: 29px;
+	/*width: 29px;
+	height: 29px;*/
+	display: none;
 	}
 	.earth {
 	width: 34px;
@@ -409,42 +440,51 @@ body {
 	height: 24px;
 	}
 	.jupiter {
-	width: 528px;
-	height: 528px;
+	/*width: 528px;
+	height: 528px;*/
+	display: none;
 	}
 	.saturn {
-	width: 432px;
-	height: 432px;
+	/*width: 432px;
+	height: 432px;*/
+	display: none;
 	}
 	.uranus {
-	width: 144px;
-	height: 144px;
+	/*width: 144px;
+	height: 144px;*/
+	display: none;
 	}
 	.neptune {
-	width: 130px;
-	height: 130px;
+	/*width: 130px;
+	height: 130px;*/
+	display: none;
 	}
 	.pluton {
-	width: 14px;
-	height: 14px;
+	/*width: 14px;
+	height: 14px;*/
+	display: none;
 	}
 }
 
 @media screen and (max-width: 900px) {
 	.container {
-	width: 1678%;
+	width: 300%;
+	/*width: 1678%;*/
 	}
 	.sun {
-	width: 4636px;
-	height: 4636px;
+	/*width: 4636px;
+	height: 4636px;*/
+	display: none;
 	}
 	.mercury {
-	width: 23px;
-	height: 23px;
+	/*width: 23px;
+	height: 23px;*/
+	display: none;
 	}
 	.venus {
-	width: 46px;
-	height: 46px;
+	/*width: 46px;
+	height: 46px;*/
+	display: none;
 	}
 	.earth {
 	width: 55px;
@@ -455,43 +495,52 @@ body {
 	height: 39px;
 	}
 	.jupiter {
-	width: 850px;
-	height: 850px;
+	/*width: 850px;
+	height: 850px;*/
+	display: none;
 	}
 	.saturn {
-	width: 695px;
-	height: 695px;
+	/*width: 695px;
+	height: 695px;*/
+	display: none;
 	}
 	.uranus {
-	width: 232px;
-	height: 232px;
+	/*width: 232px;
+	height: 232px;*/
+	display: none;
 	}
 	.neptune {
-	width: 209px;
-	height: 209px;
+	/*width: 209px;
+	height: 209px;*/
+	display: none;
 	}
 	.pluton {
-	width: 23px;
-	height: 23px;
+	/*width: 23px;
+	height: 23px;*/
+	display: none;
 	}
 }
 
 
 @media screen and (max-width: 800px) {
 	.container {
-	width: 2684%;
+	width: 250%;
+	/*width: 2684%;*/
 	}
 	.sun {
 	width: 7464px;
 	height: 7464px;
+	display: none;
 	}
 	.mercury {
 	width: 37px;
 	height: 37px;
+	display: none;
 	}
 	.venus {
 	width: 75px;
 	height: 75px;
+	display: none;
 	}
 	.earth {
 	width: 89px;
@@ -500,133 +549,215 @@ body {
 	.mars {
 	width: 62px;
 	height: 62px;
+	display: none;
 	}
 	.jupiter {
 	width: 1368px;
 	height: 1368px;
+	display: none;
 	}
 	.saturn {
 	width: 1120px;
 	height: 1120px;
+	display: none;
 	}
 	.uranus {
 	width: 373px;
 	height: 373px;
+	display: none;
 	}
 	.neptune {
 	width: 334px;
 	height: 334px;
+	display: none;
 	}
 	.pluton {
 	width: 37px;
 	height: 37px;
+	display: none;
 	}
 }
 
 @media screen and (max-width: 700px) {
 	.container {
-	width: 4295%;
+	width: 200%;
+	/*width: 4295%;*/
 	}
 	.sun {
-	width: 7464px;
-	height: 100%;
+	width: 12016px;
+	height: 12016px;
+	display: none;
 	}
 	.mercury {
-	width: 37px;
-	height: 100%;
+	width: 61px;
+	height: 61px;
+	display: none;
 	}
 	.venus {
-	width: 75px;
-	height: 100%;
+	width: 120px;
+	height: 120px;
+	display: none;
 	}
 	.earth {
 	width: 144px;
 	height: 144px;
 	}
 	.mars {
-	width: 62px;
-	height: 100%;
+	width: 100px;
+	height: 100px;
+	display: none;
 	}
 	.jupiter {
-	width: 1368px;
-	height: 100%;
+	width: 2203px;
+	height: 2202px;
+	display: none;
 	}
 	.saturn {
-	width: 1120px;
-	height: 100%;
+	width: 1802px;
+	height: 1802px;
+	display: none;
 	}
 	.uranus {
-	width: 373px;
-	height: 100%;
+	width: 600px;
+	height: 600px;
+	display: none;
 	}
 	.neptune {
-	width: 334px;
-	height: 100%;
+	width: 541px;
+	height: 541px;
+	display: none;
 	}
 	.pluton {
-	width: 37px;
-	height: 100%;
+	width: 61px;
+	height: 61px;
+	display: none;
 	}
-	
 }
 
 @media screen and (max-width: 600px) {
 	.container {
-	width: 1500%;
+	width: 150%;
+	/*width: 6915%;*/
 	}
 	.sun {
-	width: 2879px;
-	height: 2879px;
+	width: 13940px;
+	height: 13940px;
+	display: none;
 	}
 	.mercury {
-	width: 14px;
-	height: 14px;
+	width: 98px;
+	height: 98px;
+	display: none;
 	}
 	.venus {
-	width: 29px;
-	height: 29px;
+	width: 193px;
+	height: 193px;
+	display: none;
 	}
 	.earth {
 	width: 233px;
 	height: 233px;
 	}
 	.mars {
-	width: 24px;
-	height: 24px;
+	width: 161px;
+	height: 161px;
+	display: none;
 	}
 	.jupiter {
-	width: 528px;
-	height: 528px;
+	width: 3547px;
+	height: 3547px;
+	display: none;
 	}
 	.saturn {
-	width: 432px;
-	height: 432px;
+	width: 2902px;
+	height: 2902px;
+	display: none;
 	}
 	.uranus {
-	width: 144px;
-	height: 144px;
+	width: 967px;
+	height: 967px;
+	display: none;
 	}
 	.neptune {
-	width: 130px;
-	height: 130px;
+	width: 871px;
+	height: 871px;
+	display: none;
 	}
 	.pluton {
-	width: 14px;
-	height: 14px;
+	width: 97px;
+	height: 97px;
+	display: none;
 	}
 }
 
 @media screen and (max-width: 500px) {
 	.container {
-	width: 1500%;
+	width: 100%;
+	/*width: 11133%;*/
 	}
 	.sun {
-	width: 2879px;
-	height: 2879px;
+	/*width: 22443px;
+	height: 22443px;*/
+	display: none;
 	}
 	.mercury {
-	width: 14px;
-	height: 14px;
+	/*width: 158px;
+	height: 158px;*/
+	display: none;
+	}
+	.venus {
+	/*width: 311px;
+	height: 311px;*/
+	display: none;
+	}
+	.earth {
+	width: 375px;
+	height: 375px;
+	}
+	.mars {
+	/*width: 259px;
+	height: 259px;*/
+	display: none;
+	}
+	.jupiter {
+	/*width: 5711px;
+	height: 5711px;*/
+	display: none;
+	}
+	.saturn {
+	/*width: 4672px;
+	height: 4672px;*/
+	display: none;
+	}
+	.uranus {
+	/*width: 1557px;
+	height: 1557px;*/
+	display: none;
+	}
+	.neptune {
+	/*width: 1402px;
+	height: 1402px;*/
+	display: none;
+	}
+	.pluton {
+	/*width: 156px;
+	height: 156px;*/
+	display: none;
+	}
+}
+
+
+/*@media screen and (max-width: 400px) {
+	.container {
+	width: 16384%;
+	}
+	.sun {
+	width: 36133px;
+	height: 36133px;
+	}
+	.mercury {
+	width: 255px;
+	height: 255px;
 	}
 	.venus {
 	width: 29px;
@@ -660,10 +791,5 @@ body {
 	width: 14px;
 	height: 14px;
 	}
-}
-
-
-@media screen and (max-width: 400px) {
-
 	
-}
+}*/
