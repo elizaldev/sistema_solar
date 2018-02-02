@@ -10,33 +10,197 @@
 <body>
 	<!-- <div class="title"><span>El sistema solar</span></div> -->
 	<div class="background">
-		<div class="line"></div>
+		<div id="line-h"></div>
+		<div id="line-w"></div>
 		<div class="width-display"><p>Tamaño de ventana:</p><span id="value"></span></div>
 		<div id="container" class="display container">
-			<div class="item"><p>Sol</p><div class="display sun transition"></div></div>
-			<div class="item"><p>Mercurio</p><div class="display mercury transition"></div></div>
-			<div class="item"><p>Venus</p><div class="display venus transition"></div></div>
-			<div class="item"><p>Tierra</p><div class="display earth transition"></div></div>
-			<div class="item"><p>Marte</p><div class="display mars transition"></div></div>
-			<div class="item"><p>Júpiter</p><div class="display jupiter transition"></div></div>
-			<div class="item"><p>Saturno</p><div class="display saturn transition"></div></div>
-			<div class="item"><p>Urano</p><div class="display uranus transition"></div></div>
-			<div class="item"><p>Neptuno</p><div class="display neptune transition"></div></div>
-			<div class="item"><p>Plutón</p><div class="display pluton transition"></div></div>
+			<div class="item"><div id="sun"></div><p id="su" class="p-name none">Sol</p><div class="sun transition"><div id="info-su" class="info-item-planet none-info"><p>Nombre: <span>Sol</span></p><p>Tipo: <span>Estrella</span></p></div></div></div>
+			<div class="item"><div id="mercury"></div><p id="me" class="p-name none">Mercurio</p><div class="mercury transition"><div id="info-me" class="info-item-planet none-info"><p>Nombre: <span>Mercurio</span></p><p>Tipo: <span>Planeta</span></p></div></div></div>
+			<div class="item"><div id="venus"></div><p id="ve" class="p-name none">Venus</p><div class="venus transition"><div id="info-ve" class="info-item-planet none-info"><p>Nombre: <span>Venus</span></p><p>Tipo: <span>Planeta</span></p></div></div></div>
+			<div class="item"><div id="earth"></div><p id="ea" class="p-name none">Tierra</p><div class="earth transition"><div id="info-ea" class="info-item-planet none-info"><p>Nombre: <span>Tierra</span></p><p>Tipo: <span>Planeta</span></p></div></div></div>
+			<div class="item"><div id="mars"></div><p id="ma" class="p-name none">Marte</p><div class="mars transition"><div id="info-ma" class="info-item-planet none-info"><p>Nombre: <span>Marte</span></p><p>Tipo: <span>Planeta</span></p></div></div></div>
+			<div class="item"><div id="jupiter"></div><p id="ju" class="p-name none">Júpiter</p><div class="jupiter transition"><div id="info-ju" class="info-item-planet none-info"><p>Nombre: <span>Júpiter</span></p><p>Tipo: <span>Planeta</span></p></div></div></div>
+			<div class="item"><div id="saturn"></div><p id="sa" class="p-name none">Saturno</p><div class="saturn transition"><div id="info-sa" class="info-item-planet none-info"><p>Nombre: <span>Saturno</span></p><p>Tipo: <span>Planeta</span></p></div></div></div>
+			<div class="item"><div id="uranus"></div><p id="ur" class="p-name none">Urano</p><div class="uranus transition"><div id="info-ur" class="info-item-planet none-info"><p>Nombre: <span>Urano</span></p><p>Tipo: <span>Planeta</span></p></div></div></div>
+			<div class="item"><div id="neptune"></div><p id="ne" class="p-name none">Neptuno</p><div class="neptune transition"><div id="info-ne" class="info-item-planet none-info"><p>Nombre: <span>Neptuno</span></p><p>Tipo: <span>Planeta</span></p></div></div></div>
+			<!-- <div class="item"><div id="pluton"></div><p id="pl" class="p-name none">Plutón</p><div class="display pluton transition"></div></div> -->
+		</div>
+		<div class="info">
+			<div id="info-ss" class="info-item none-info"><p>Nombre: <span>Sistema solar</span></p><p>Localización: <span>Nube Interestelar Local, Burbuja Local, Brazo de Orión, Vía Láctea.</span></p><p>Estrella más cercana: <span>Próxima Centauri (4,22 al).</span></p><p>Estrellas: <span>1 (Sol)</span></p><p>Planetas: <span>8 (Mercurio, Venus, Tierra, Marte, Júpiter, Saturno, Urano, Neptuno, Pluton).</span></p></div>
+		</div>
+		<div id="menu" class="menu">
+			<div id="pestana" class="pestana"></div>
+			<p class="non">Mostrar:</p>
+			<ul>
+				<li><input type="checkbox" id="cn" name="nombres"><label for="cn">Nombres</label></li>
+				<li><input type="checkbox" id="cg" name="guias"><label for="cg">Guías</label></li>
+				<li><input type="checkbox" id="cc" name="centros"><label for="cc">Centro</label></li>
+				<li><input type="checkbox" id="ci" name="info"><label for="ci">Info</label></li>
+			</ul>
 		</div>
 	</div>
+	
 
-<script type="text/javascript">	
+<!-- <div id="info-ss" class="info-item-planet"><p>Nombre: <span>Sistema solar</span></p><p>Localización: <span>Nube Interestelar Local, Burbuja Local, Brazo de Orión, Vía Láctea.</span></p><p>Estrella más cercana: <span>Próxima Centauri (4,22 al).</span></p><p>Estrellas: <span>1</span></p><p>Planetas: <span>8</span></p></div> -->
+
+
+<script type="text/javascript">
 
 
 	var width = window.addEventListener('resize', pantalla);
 	var value = document.getElementById('value');
-	var container = document.getElementById('container');
+
+	var line_h = document.getElementById('line-h');
+	var line_w = document.getElementById('line-w');
+
+	var container = document.getElementById('container');	
+
+	var sun = document.getElementById('sun');
+	var mercury = document.getElementById('mercury');
+	var venus = document.getElementById('venus');
+	var earth = document.getElementById('earth');
+	var mars = document.getElementById('mars');
+	var jupiter = document.getElementById('jupiter');
+	var saturn = document.getElementById('saturn');
+	var uranus = document.getElementById('uranus');
+	var neptune = document.getElementById('neptune');
+	// var pluton = document.getElementById('pluton');
+
+	var su = document.getElementById('su');
+	var me = document.getElementById('me');
+	var ve = document.getElementById('ve');
+	var ea = document.getElementById('ea');
+	var ma = document.getElementById('ma');
+	var ju = document.getElementById('ju');
+	var sa = document.getElementById('sa');
+	var ur = document.getElementById('ur');
+	var ne = document.getElementById('ne');
+	// var pl = document.getElementById('pl');
+	
+	var info_su = document.getElementById('info-su');
+	var info_me = document.getElementById('info-me');
+	var info_ve = document.getElementById('info-ve');
+	var info_ea = document.getElementById('info-ea');
+	var info_ma = document.getElementById('info-ma');
+	var info_ju = document.getElementById('info-ju');
+	var info_sa = document.getElementById('info-sa');
+	var info_ur = document.getElementById('info-ur');
+	var info_ne = document.getElementById('info-ne');
+	var info_ss = document.getElementById('info-ss');
+
+	var menu = document.getElementById('menu');
+	var pestana = document.getElementById('pestana');
+
+	var cn = document.getElementById('cn');
+	var cg = document.getElementById('cg');
+	var cc = document.getElementById('cc');
+	var ci = document.getElementById('ci');
 	// var nuevo, anterior, ref;
 	// anterior=0;
 	// ref=1;
 
-	function pantalla() {
+	function toggleMenu () {
+		menu.classList.toggle('active');
+	}
+
+	function showNames () {
+		if(cn.checked == true) {
+			su.classList.remove('none');
+			me.classList.remove('none');
+			ve.classList.remove('none');
+			ea.classList.remove('none');
+			ma.classList.remove('none');
+			ju.classList.remove('none');
+			sa.classList.remove('none');
+			ur.classList.remove('none');
+			ne.classList.remove('none');
+			// pl.classList.remove('none');
+		} else {
+			su.classList.add('none');
+			me.classList.add('none');
+			ve.classList.add('none');
+			ea.classList.add('none');
+			ma.classList.add('none');
+			ju.classList.add('none');
+			sa.classList.add('none');
+			ur.classList.add('none');
+			ne.classList.add('none');
+			// pl.classList.add('none');
+		}
+	}
+
+	function showGuies () {
+		if(cg.checked == true) {
+			sun.classList.add('guia');
+			mercury.classList.add('guia');
+			venus.classList.add('guia');
+			earth.classList.add('guia');
+			mars.classList.add('guia');
+			jupiter.classList.add('guia');
+			saturn.classList.add('guia');
+			uranus.classList.add('guia');
+			neptune.classList.add('guia');
+			// pluton.classList.add('guia');
+		} else {
+			sun.classList.remove('guia');
+			mercury.classList.remove('guia');
+			venus.classList.remove('guia');
+			earth.classList.remove('guia');
+			mars.classList.remove('guia');
+			jupiter.classList.remove('guia');
+			saturn.classList.remove('guia');
+			uranus.classList.remove('guia');
+			neptune.classList.remove('guia');
+			// pluton.classList.remove('guia');
+		}
+	}
+
+	function showCenters () {
+		if(cc.checked == true) {
+			line_h.classList.add('line-h');
+			line_w.classList.add('line-w');
+		} else {
+			line_h.classList.remove('line-h');
+			line_w.classList.remove('line-w');
+		}
+
+	}
+
+	function showInfo () {
+		if(ci.checked == true) {
+			info_su.classList.remove('none-info');
+			info_me.classList.remove('none-info');
+			info_ve.classList.remove('none-info');
+			info_ea.classList.remove('none-info');
+			info_ma.classList.remove('none-info');
+			info_ju.classList.remove('none-info');
+			info_sa.classList.remove('none-info');
+			info_ur.classList.remove('none-info');
+			info_ne.classList.remove('none-info');
+			info_ss.classList.remove('none-info');
+		} else {
+			info_su.classList.add('none-info');
+			info_me.classList.add('none-info');
+			info_ve.classList.add('none-info');
+			info_ea.classList.add('none-info');
+			info_ma.classList.add('none-info');
+			info_ju.classList.add('none-info');
+			info_sa.classList.add('none-info');
+			info_ur.classList.add('none-info');
+			info_ss.classList.add('none-info');
+		}
+		
+	}
+
+
+	pestana.addEventListener('click',toggleMenu);
+
+	cn.addEventListener('change', showNames);
+	cg.addEventListener('change', showGuies);
+	cc.addEventListener('change', showCenters);
+	ci.addEventListener('change', showInfo);
+
+	function pantalla () {
 		width = window.innerWidth;
 		console.log('Width: ' + width);
 		value.innerHTML = ' '+ width + 'px';
@@ -54,7 +218,6 @@
 		// anterior=width;
 		
 	}
-
 	pantalla();
 
 </script>

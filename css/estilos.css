@@ -6,9 +6,9 @@ body {
 	font-size: 10px;
 	color: #666;
 	font-family: 'Source Code Pro', monospace;
-	background-color: black;	
+	background-color: black;
+	overflow: hidden;
 }
-
 .title span {
 	display: block;
 	font-size: 20px;
@@ -19,7 +19,6 @@ body {
 
 .background {
 	display: flex;
-	justify-content: space-between;
 	align-items: center;
 	flex-flow: column;
 	width: 100vw;
@@ -29,13 +28,20 @@ body {
 	background-size: cover;
 	background-attachment: fixed;
 	background-position: center center;
-	overflow: hidden;
+	overflow-x: scroll;
+	overflow-y: hidden;
 }
-.line {
+.line-h {
 	position: absolute;
-	border-left: solid 1px red;
+	border-left: solid 1px rgba(255,0,0,0.4);
 	height: 100%;
 	left: 50%;
+}
+.line-w {
+	position: absolute;
+	border-top: solid 1px rgba(255,0,0,0.4);
+	width: 100%;
+	top: 50%;
 }
 .width-display {
 	position: fixed;
@@ -45,18 +51,19 @@ body {
 	top:20px;
 	left: 20px;
 	padding: 0px 10px;
-	background: rgba(0,0,0,0.85);
+	background: rgba(0,0,0,0.65);
 	color: #666;
 	border: solid 1px #2d2d2d;
 	border-radius: 4px;
 	margin: 0 auto;
+	font-size: 10px;
 	z-index: 1;
 }
 .display {
 	display: inline-block;
 }
 .transition {
-	transition: 1s;
+	transition: 5s;
 }
 .container {
 	display: flex;
@@ -64,9 +71,10 @@ body {
 	height: 100%;
 	width: 100%;
 	transition: 1s;
-	/*overflow: scroll;*/
+	overflow: hidden;
+	padding: 0 18px;
 }
-.container p {
+.p-name {
 	position: absolute;
 	top: 100px;
 	justify-content: center;
@@ -77,6 +85,14 @@ body {
 	border: solid 1px #2d2d2d;
 	border-radius: 4px;
 	margin: 0;
+	visibility: visible;
+	z-index: 6;
+}
+.none {
+	visibility: hidden;
+}
+.none-info {
+	visibility: hidden;
 }
 .item {
 	display: flex;
@@ -86,26 +102,30 @@ body {
 	align-items: center;
 	height: 100%;
 	width: auto;
-	border-left: 1px;
-	border-right: 1px;
-	border-top: 0;
-	border-bottom: 0;
-	border-color: #005956;
-	border-style: solid;
 	/*background: skyblue;*/
 }
+.guia {
+	position: absolute;
+	border-left: solid 1px rgba(0,89,86,.6);
+	left: 50%;
+	height: 100%;
+	z-index: 0;
+}
 .sun {
+	position: relative;
 	width: 261px;
 	height: 261px;
-	/*background: red;*/
-	background-image: url(../img/sun.png);
+	background: red;
+	background-image: url(../img/sun_.png);
 	background-repeat: no-repeat;
 	background-position: center center;
-	background-size: cover;
+	background-size: contain;
 	text-align: center;
-	/*margin: 3.3%;*/
+	border-radius: 50%;
+	box-shadow: 0px 0px 30px 7px rgba(255,0,0,0.55);
 }
 .mercury {
+	position: relative;
 	width: 1px;
 	height: 1px;
 	/*background: green;*/
@@ -117,8 +137,9 @@ body {
 	/*margin: 3.3%;*/
 }
 .venus {
-	width: 3px;
-	height: 3px;
+	position: relative;
+	width: 4px;
+	height: 4px;
 	/*background: blue;*/
 	background-image: url(../img/venus.png);
 	background-repeat: no-repeat;
@@ -128,8 +149,9 @@ body {
 	/*margin: 3.3%;*/
 }
 .earth {
-	width: 3px;
-	height: 3px;
+	position: relative;
+	width: 5px;
+	height: 5px;
 	/*background: pink;*/
 	background-image: url(../img/eath.png);
 	background-repeat: no-repeat;
@@ -139,8 +161,9 @@ body {
 	/*margin: 3.3%;*/
 }
 .mars {
-	width: 2px;
-	height: 2px;
+	position: relative;
+	width: 3px;
+	height: 3px;
 	/*background: orange;*/
 	background-image: url(../img/marte.png);
 	background-repeat: no-repeat;
@@ -150,6 +173,7 @@ body {
 	/*margin: 3.3%;*/
 }
 .jupiter {
+	position: relative;
 	width: 48px;
 	height: 48px;
 	/*background: skyblue;*/
@@ -161,6 +185,7 @@ body {
 	/*margin: 3.3%;*/
 }
 .saturn {
+	position: relative;
 	width: 39px;
 	height: 39px;
 	/*background: yellow;*/
@@ -172,6 +197,7 @@ body {
 	/*margin: 3.3%;*/
 }
 .uranus {
+	position: relative;
 	width: 13px;
 	height: 13px;
 	/*background: brown;*/
@@ -183,6 +209,7 @@ body {
 	/*margin: 3.3%;*/
 }
 .neptune {
+	position: relative;
 	width: 12px;
 	height: 12px;
 	/*background: purple;*/
@@ -194,6 +221,7 @@ body {
 	/*margin: 3.3%;*/
 }
 .pluton {
+	position: relative;
 	width: 1px;
 	height: 1px;
 	/*background: white;*/
@@ -204,592 +232,519 @@ body {
 	text-align: center;
 	/*margin: 3.3%;*/
 }
-
-@media screen and (max-width: 1400px) {
+.info-item {
+	position: absolute;
+	left: 20px;
+	bottom: 50px;
+	text-align: left;
+	max-width: 600px;
+	padding: 10px 10px;
+	background: rgba(0,0,0,0.65);
+	color: #666;
+	border: solid 1px #2d2d2d;
+	border-radius: 5px;
+	margin: 0 auto;
+	z-index: 2;
+	transition: .3s;
+}
+.info-item p {
+	color: #bbb;
+	line-height: 100%;
+	margin: 6px;
+}
+.info-item span {
+	color: #888;
+}
+.info-item-planet {
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: calc(50% + 130px);
+	text-align: left;
+	max-width: 300px;
+	padding: 10px 10px;
+	background: rgba(0,0,0,0.65);
+	color: #666;
+	border: solid 1px #2d2d2d;
+	border-radius: 5px;
+	margin: 0 auto;
+	z-index: 7;
+	transition: .3s;
+}
+.info-item-planet p {
+	color: #bbb;
+	line-height: 100%;
+	margin: 6px;
+}
+.info-item-planet span {
+	color: #888;
+}
+.menu {
+	box-sizing: border-box;
+	position: absolute;
+	width: 100%;
+	height: 40px;
+	bottom: -41px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: #eee;
+	padding: 0 18px;
+	border-top-left-radius: 4px;
+	border-top-right-radius: 4px;
+	background: rgba(0,0,0,0.65);
+	border: solid 1px #2d2d2d;
+	border-bottom: 0;
+	transition: .3s;
+}
+.pestana {
+	text-align: center;
+	cursor: pointer;
+	position: absolute;
+	width: 150px;
+	height: 20px;
+	background: rgba(0,0,0,0.65);
+	border: solid 1px #2d2d2d;
+	border-bottom: 0;
+	top: -22px;
+	left: calc(50% - 75px);
+	border-top-left-radius: 4px;
+	border-top-right-radius: 4px;
+	transition: .3s;
+}
+.pestana:before {
+	font-size: 20px;
+	content:"\02c6";
+	line-height: 1.8;
+}
+.pestana:hover {
+	border: solid 1px #666;
+	border-bottom: 0;
+}
+label {
+	margin-left: 5px;
+	margin-right: 15px;
+}
+.menu li {
+	display: inline-block;
+}
+.menu ul {
+	padding: 5px;
+}
+.active {
+	bottom: 0;
+}
+#info-su, #info-me, #info-ve, #info-ea, #info-ma, #info-ju, #info-sa, #info-ur, #info-ne {
+	display: none;
+}
+@media screen and (max-width: 1400px) { /*se reduce al 80% el contenedor para juntar los planetas. Sol crece. Planetas primeros crecen. Planetas ültimos decrecen.*/
 	.container {
-	width: 160%;
+	width: 80%;
 	}
 	.sun {
-	width: 429px;
+	width: 429px !important;
 	height: 429px;
+	margin: 0 auto;
 	}
 	.mercury {
-	width: 2px;
-	height: 2px;
+	width: 4px !important;
+	height: 4px;
+	margin: 0 auto;
 	}
 	.venus {
-	width: 4px;
-	height: 4px;
-	margin-right: 100px;
+	width: 3px !important;
+	height: 3px;
+	margin: 0 auto;
 	}
 	.earth {
-	width: 5px;
-	height: 5px;
+	width: 3px !important;
+	height: 3px;
+	margin: 0 auto;
 	}
 	.mars {
-	width: 4px;
-	height: 4px;
+	width: 2px !important;
+	height: 2px;
+	margin: 0 auto;
 	}
 	.jupiter {
-	width: 79px;
-	height: 79px;
+	width: 50px !important;
+	height: 50px;
+	margin: 0 auto;
 	}
 	.saturn {
-	width: 64px;
-	height: 64px;
+	width: 34px !important;
+	height: 34px;
+	margin: 0 auto;
 	}
 	.uranus {
-	width: 21px;
-	height: 21px;
+	width: 9px !important;
+	height: 9px;
+	margin: 0 auto;
 	}
 	.neptune {
-	width: 19px;
-	height: 19px;
-	display: none;
-	}
-	.pluton {
-	width: 2px;
-	height: 2px;
-	display: none;
-	}
-	.item:nth-child(9) {
-	visibility: hidden;
-	}
-	.item:nth-child(10) {
-	visibility: hidden;
+	width: 8px !important;
+	height: 18px;
+	margin: 0 auto;
 	}
 }
-
-
-@media screen and (max-width: 1300px) {
+@media screen and (max-width: 1300px) { /*se reduce  al 65% el contenedor para seguir juntando los planetas. Sol crece. Planetas primeros crecen. Planetas ültimos decrecen.*/
 	.container {
-	width: 256%;
+	width: 65%;
 	}
 	.sun {
-	width: 690px;
-	height: 690px;
-	display: none;
+	width: 550px !important;
+	height: 550px;
 	}
 	.mercury {
-	width: 3px;
-	height: 3px;
-	}
-	.venus {
-	width: 7px;
-	height: 7px;
-	margin-right: 200px;
-	}
-	.earth {
-	width: 8px;
+	width: 8px !important;
 	height: 8px;
 	}
+	.venus {
+	width: 5px !important;
+	height: 5px;
+	}
+	.earth {
+	width: 4px !important;
+	height: 4px;
+	}
 	.mars {
-	width: 6px;
-	height: 6px;
+	width: 3px !important;
+	height: 3px;
 	}
 	.jupiter {
-	width: 126px;
-	height: 126px;
+	width: 9px !important;
+	height: 9px;
 	}
 	.saturn {
-	width: 103px;
-	height: 103px;
-	display: none;
+	width: 6px !important;
+	height: 6px;
 	}
 	.uranus {
-	width: 34px;
-	height: 34px;
-	display: none;
+	width: 3px !important;
+	height: 3px;
 	}
 	.neptune {
-	width: 31px;
-	height: 31px;
+	width: 2px !important;
+	height: 2px;
+	}
+}
+/*	-	-	-	-	-	desaparicion de planetas uno a uno comenzando por mercurio: -	-	-	-	-	-	-	-	-	*/
+@media screen and (max-width: 1219px) { /* media-querie para desaparecer mercurio*/
+	.item:nth-child(2) { /*desaparece mercurio*/
 	display: none;
 	}
-	.pluton {
-	width: 3px;
-	height: 3px;
+}
+@media screen and (max-width: 1217px) { /* media-querie para desaparecer venus*/
+	.item:nth-child(3) { /*desaparece venus*/
 	display: none;
 	}
+}
+@media screen and (max-width: 1215px) {
+	.item:nth-child(4) {
+	display: none;
+	}
+}
+@media screen and (max-width: 1213px) {
+	.item:nth-child(4) {
+	display: none;
+	}
+}
+@media screen and (max-width: 1211px) {
+	.item:nth-child(5) {
+	display: none;
+	}
+}
+@media screen and (max-width: 1209px) {
+	.item:nth-child(6) {
+	display: none;
+	}
+}
+@media screen and (max-width: 1207px) {
+	.item:nth-child(7) {
+	display: none;
+	}
+}
+@media screen and (max-width: 1205px) {
+	.item:nth-child(8) {
+	display: none;
+	}
+}
+@media screen and (max-width: 1203px) {
 	.item:nth-child(9) {
 	display: none;
 	}
-	.item:nth-child(10) {
-	display: none;
-	}
 }
-
-@media screen and (max-width: 1200px) {
-	.container {
-	width: 410%;
-	}
-	.sun {
-	width: 1111px;
-	height: 1111px;
-	}
-	.mercury {
-	width: 6px;
-	height: 6px;
-	}
-	.venus {
-	width: 11px;
-	height: 11px;
-	}
-	.earth {
-	width: 13px;
-	height: 13px;
-	}
-	.mars {
-	width: 9px;
-	height: 9px;
-	}
-	.jupiter {
-	width: 204px;
-	height: 205px;
-	}
-	.saturn {
-	width: 167px;
-	height: 167px;
-	}
-	.uranus {
-	width: 56px;
-	height: 56px;
-	}
-	.neptune {
-	width: 50px;
-	height: 50px;
-	}
-	.pluton {
-	width: 6px;
-	height: 6px;
-	}
-}
-
-@media screen and (max-width: 1100px) {
-	.container {
-	width: 655%;
-	}
-	.sun {
-	width: 1788px;
-	height: 1788px;
-	}
-	.mercury {
-	width: 9px;
-	height: 9px;
-	}
-	.venus {
-	width: 18px;
-	height: 18px;
-	}
-	.earth {
-	width: 21px;
-	height: 21px;
-	}
-	.mars {
-	width: 15px;
-	height: 15px;
-	}
-	.jupiter {
-	width: 328px;
-	height: 328px;
-	}
-	.saturn {
-	width: 268px;
-	height: 268px;
-	}
-	.uranus {
-	width: 89px;
-	height: 89px;
-	}
-	.neptune {
-	width: 80px;
-	height: 80px;
-	}
-	.pluton {
-	width: 9px;
-	height: 9px;
-	}
-}
-
-@media screen and (max-width: 1000px) {
-	.container {
-	width: 350%;
-	/*width: 1049%;*/
-	}
-	.sun {
-	/*width: 2879px;
-	height: 2879px;*/
-	display: none;
-	}
-	.mercury {
-	/*width: 14px;
-	height: 14px;*/
-	display: none;
-	}
-	.venus {
-	/*width: 29px;
-	height: 29px;*/
-	display: none;
-	}
-	.earth {
-	width: 34px;
-	height: 34px;
-	}
-	.mars {
-	width: 24px;
-	height: 24px;
-	}
-	.jupiter {
-	/*width: 528px;
-	height: 528px;*/
-	display: none;
-	}
-	.saturn {
-	/*width: 432px;
-	height: 432px;*/
-	display: none;
-	}
-	.uranus {
-	/*width: 144px;
-	height: 144px;*/
-	display: none;
-	}
-	.neptune {
-	/*width: 130px;
-	height: 130px;*/
-	display: none;
-	}
-	.pluton {
-	/*width: 14px;
-	height: 14px;*/
-	display: none;
-	}
-}
-
-@media screen and (max-width: 900px) {
-	.container {
-	width: 300%;
-	/*width: 1678%;*/
-	}
-	.sun {
-	/*width: 4636px;
-	height: 4636px;*/
-	display: none;
-	}
-	.mercury {
-	/*width: 23px;
-	height: 23px;*/
-	display: none;
-	}
-	.venus {
-	/*width: 46px;
-	height: 46px;*/
-	display: none;
-	}
-	.earth {
-	width: 55px;
-	height: 55px;
-	}
-	.mars {
-	width: 39px;
-	height: 39px;
-	}
-	.jupiter {
-	/*width: 850px;
-	height: 850px;*/
-	display: none;
-	}
-	.saturn {
-	/*width: 695px;
-	height: 695px;*/
-	display: none;
-	}
-	.uranus {
-	/*width: 232px;
-	height: 232px;*/
-	display: none;
-	}
-	.neptune {
-	/*width: 209px;
-	height: 209px;*/
-	display: none;
-	}
-	.pluton {
-	/*width: 23px;
-	height: 23px;*/
-	display: none;
-	}
-}
-
-
-@media screen and (max-width: 800px) {
-	.container {
-	width: 250%;
-	/*width: 2684%;*/
-	}
-	.sun {
-	width: 7464px;
-	height: 7464px;
-	display: none;
-	}
-	.mercury {
-	width: 37px;
-	height: 37px;
-	display: none;
-	}
-	.venus {
-	width: 75px;
-	height: 75px;
-	display: none;
-	}
-	.earth {
-	width: 89px;
-	height: 89px;
-	}
-	.mars {
-	width: 62px;
-	height: 62px;
-	display: none;
-	}
-	.jupiter {
-	width: 1368px;
-	height: 1368px;
-	display: none;
-	}
-	.saturn {
-	width: 1120px;
-	height: 1120px;
-	display: none;
-	}
-	.uranus {
-	width: 373px;
-	height: 373px;
-	display: none;
-	}
-	.neptune {
-	width: 334px;
-	height: 334px;
-	display: none;
-	}
-	.pluton {
-	width: 37px;
-	height: 37px;
-	display: none;
-	}
-}
-
-@media screen and (max-width: 700px) {
-	.container {
-	width: 200%;
-	/*width: 4295%;*/
-	}
-	.sun {
-	width: 12016px;
-	height: 12016px;
-	display: none;
-	}
-	.mercury {
-	width: 61px;
-	height: 61px;
-	display: none;
-	}
-	.venus {
-	width: 120px;
-	height: 120px;
-	display: none;
-	}
-	.earth {
-	width: 144px;
-	height: 144px;
-	}
-	.mars {
-	width: 100px;
-	height: 100px;
-	display: none;
-	}
-	.jupiter {
-	width: 2203px;
-	height: 2202px;
-	display: none;
-	}
-	.saturn {
-	width: 1802px;
-	height: 1802px;
-	display: none;
-	}
-	.uranus {
-	width: 600px;
-	height: 600px;
-	display: none;
-	}
-	.neptune {
-	width: 541px;
-	height: 541px;
-	display: none;
-	}
-	.pluton {
-	width: 61px;
-	height: 61px;
-	display: none;
-	}
-}
-
-@media screen and (max-width: 600px) {
-	.container {
-	width: 150%;
-	/*width: 6915%;*/
-	}
-	.sun {
-	width: 13940px;
-	height: 13940px;
-	display: none;
-	}
-	.mercury {
-	width: 98px;
-	height: 98px;
-	display: none;
-	}
-	.venus {
-	width: 193px;
-	height: 193px;
-	display: none;
-	}
-	.earth {
-	width: 233px;
-	height: 233px;
-	}
-	.mars {
-	width: 161px;
-	height: 161px;
-	display: none;
-	}
-	.jupiter {
-	width: 3547px;
-	height: 3547px;
-	display: none;
-	}
-	.saturn {
-	width: 2902px;
-	height: 2902px;
-	display: none;
-	}
-	.uranus {
-	width: 967px;
-	height: 967px;
-	display: none;
-	}
-	.neptune {
-	width: 871px;
-	height: 871px;
-	display: none;
-	}
-	.pluton {
-	width: 97px;
-	height: 97px;
-	display: none;
-	}
-}
-
-@media screen and (max-width: 500px) {
-	.container {
+/*	-	-	-	-	-	Comienza vista elemento uno a uno   -	-	-	-	-	-	-	-*/
+/* vista sol */
+@media screen and (max-width: 1201px) { /*redimencion de contenedor, reseteado de tamaño de planetas en preparacion de transformacion y aumento de sol*/
+	.container { /*aumenta tamaño de contenedor para mostrar a gran tamaño el elemento*/
 	width: 100%;
-	/*width: 11133%;*/
-	}
-	.sun {
-	/*width: 22443px;
-	height: 22443px;*/
-	display: none;
 	}
 	.mercury {
-	/*width: 158px;
-	height: 158px;*/
-	display: none;
+	width: 0px !important; /*se resetea tamaño de planetas para su futura aparición*/
+	height: 0px;
 	}
 	.venus {
-	/*width: 311px;
-	height: 311px;*/
-	display: none;
+	width: 0px !important;
+	height: 0px;
 	}
 	.earth {
-	width: 375px;
-	height: 375px;
+	width: 0px !important;
+	height: 0px;
 	}
 	.mars {
-	/*width: 259px;
-	height: 259px;*/
-	display: none;
+	width: 0px !important;
+	height: 0px;
 	}
 	.jupiter {
-	/*width: 5711px;
-	height: 5711px;*/
-	display: none;
+	width: 0px !important;
+	height: 0px;
 	}
 	.saturn {
-	/*width: 4672px;
-	height: 4672px;*/
-	display: none;
+	width: 0px !important;
+	height: 0px;
 	}
 	.uranus {
-	/*width: 1557px;
-	height: 1557px;*/
-	display: none;
+	width: 0px !important;
+	height: 0px;
 	}
 	.neptune {
-	/*width: 1402px;
-	height: 1402px;*/
-	display: none;
+	width: 0px !important;
+	height: 0px;
 	}
-	.pluton {
-	/*width: 156px;
-	height: 156px;*/
-	display: none;
+@media screen and (max-width: 1200px) { /*se muestra sol mientras crece*/
+	.sun {
+		width: 650px !important;
+		height: 650px;
+	}
+	#info-ss { /*desaparece info de sistema solar*/
+		display: none; 
+	}
+	#info-su { /*aparece info de sol*/
+		display: block;
 	}
 }
-
-
-/*@media screen and (max-width: 400px) {
-	.container {
-	width: 16384%;
-	}
+@media screen and (max-width: 1150px) { /*sol aumenta tamaño y desaparece en preparacion de mercurio*/
 	.sun {
-	width: 36133px;
-	height: 36133px;
+		animation: 1s crecedesaparece;
+		animation-fill-mode: forwards;
 	}
+}
+@media screen and (max-width: 1101px) { /*se vuelve a mostrar mercurio con las últimas medidas heredadas, desaparece sol*/
+	.item:nth-child(1) { /*desaparece elemento sol*/
+	display: none;
+	}
+	.item:nth-child(2) { /*aparece elemento mercurio*/
+	display: flex;
+	}
+}
+@media screen and (max-width: 1100px) { /*transformacion aumento mercurio*/
+	.mercury { /*al aparecer mercurio nuevamente comienza a crecer*/
+	width: 650px !important;
+	height: 650px;
+	animation: 1s crece;
+	animation-fill-mode: forwards;
+	}
+	#info-me { /*aparece info de mercurio*/
+		display: block;
+	}
+}
+@media screen and (max-width: 1050px) { /*mercurio aumenta su tamaño y desaparece en preparación de venus*/
 	.mercury {
-	width: 255px;
-	height: 255px;
+		animation: 1s crecedesaparece;
+		animation-fill-mode: forwards;
 	}
+}
+@media screen and (max-width: 1001px) { /*se vuelve a mostrar venus con las últimas medidas heredadas, desaparece mercurio*/
+	.item:nth-child(2) { /*desaparece elemento mercurio*/
+	display: none;
+	}
+	.item:nth-child(3) { /*aparece elemento venus*/
+	display: flex;
+	}
+}
+@media screen and (max-width: 1000px) { /*transformacion aumento venus*/
+	.venus { /*al aparecer venus nuevamente comienza a crecer*/
+	width: 650px !important;
+	height: 650px;
+	animation: 1s crece;
+	animation-fill-mode: forwards;
+	}
+	#info-ve { /*aparece info de venus*/
+		display: block;
+	}
+}
+@media screen and (max-width: 950px) { /*venus aumenta su tamaño y desaparece en preparación de tierra*/
 	.venus {
-	width: 29px;
-	height: 29px;
+		animation: 1s crecedesaparece;
+		animation-fill-mode: forwards;
 	}
+}
+@media screen and (max-width: 901px) { /*se vuelve a mostrar tierra con las últimas medidas heredadas, desaparece venus*/
+	.item:nth-child(3) { /*desaparece elemento venus*/
+	display: none;
+	}
+	.item:nth-child(4) { /*aparece elemento tierra*/
+	display: flex;
+	}
+}
+@media screen and (max-width: 900px) { /*transformacion aumento tierra*/
+	.earth { /*al aparecer tierra nuevamente comienza a crecer*/
+	width: 650px !important;
+	height: 650px;
+	animation: 1s crece;
+	animation-fill-mode: forwards;
+	}
+	#info-ea { /*aparece info de tierra*/
+		display: block;
+	}
+}
+@media screen and (max-width: 850px) { /*tierra aumenta su tamaño y desaparece en preparación de marte*/
 	.earth {
-	width: 377px;
-	height: 377px;
+		animation: 1s crecedesaparece;
+		animation-fill-mode: forwards;
 	}
+}
+@media screen and (max-width: 801px) { /*se vuelve a mostrar marte con las últimas medidas heredadas, desaparece tierra*/
+	.item:nth-child(4) { /*desaparece elemento tierra*/
+	display: none;
+	}
+	.item:nth-child(5) { /*aparece elemento marte*/
+	display: flex;
+	}
+}
+@media screen and (max-width: 800px) { /*transformacion aumento marte*/
+	.mars { /*al aparecer marte nuevamente comienza a crecer*/
+	width: 550px !important;
+	height: 550px;
+	animation: 1s crece;
+	animation-fill-mode: forwards;
+	}
+	#info-ma { /*aparece info de marte*/
+		display: block;
+	}
+}
+@media screen and (max-width: 750px) { /*marte aumenta su tamaño y desaparece en preparación de jupiter*/
 	.mars {
-	width: 24px;
-	height: 24px;
+		animation: 1s crecedesaparece;
+		animation-fill-mode: forwards;
 	}
+}
+@media screen and (max-width: 701px) { /*se vuelve a mostrar jupiter con las últimas medidas heredadas, desaparece marte*/
+	.item:nth-child(5) { /*desaparece elemento marte*/
+	display: none;
+	}
+	.item:nth-child(6) { /*aparece elemento jupiter*/
+	display: flex;
+	}
+}
+@media screen and (max-width: 700px) { /*transformacion aumento jupiter*/
+	.jupiter { /*al aparecer jupiter nuevamente comienza a crecer*/
+	width: 550px !important;
+	height: 550px;
+	animation: 1s crece;
+	animation-fill-mode: forwards;
+	}
+	#info-ju { /*aparece info de jupiter*/
+		display: block;
+	}
+}
+@media screen and (max-width: 650px) { /*jupiter aumenta su tamaño y desaparece en preparación de saturno*/
 	.jupiter {
-	width: 528px;
-	height: 528px;
+		animation: 1s crecedesaparece;
+		animation-fill-mode: forwards;
 	}
+}
+@media screen and (max-width: 601px) { /*se vuelve a mostrar saturno con las últimas medidas heredadas, desaparece jupiter*/
+	.item:nth-child(6) { /*desaparece elemento jupiter*/
+	display: none;
+	}
+	.item:nth-child(7) { /*aparece elemento saturno*/
+	display: flex;
+	}
+}
+@media screen and (max-width: 600px) { /*transformacion aumento saturno*/
+	.saturn { /*al aparecer saturno nuevamente comienza a crecer*/
+	width: 450px !important;
+	height: 450px;
+	animation: 1s crece;
+	animation-fill-mode: forwards;
+	}
+	#info-sa { /*aparece info de saturno*/
+		display: block;
+	}
+}
+@media screen and (max-width: 550px) { /*saturno aumenta su tamaño y desaparece en preparación de urano*/
 	.saturn {
-	width: 432px;
-	height: 432px;
+		animation: 1s crecedesaparece;
+		animation-fill-mode: forwards;
 	}
+}
+@media screen and (max-width: 501px) { /*se vuelve a mostrar urano con las últimas medidas heredadas, desaparece saturno*/
+	.item:nth-child(7) { /*desaparece elemento saturno*/
+	display: none;
+	}
+	.item:nth-child(8) { /*aparece elemento urano*/
+	display: flex;
+	}
+}
+@media screen and (max-width: 500px) { /*transformacion aumento urano*/
+	.uranus { /*al aparecer urano nuevamente comienza a crecer*/
+	width: 450px !important;
+	height: 450px;
+	animation: 1s crece;
+	animation-fill-mode: forwards;
+	}
+	#info-ur { /*aparece info de urano*/
+		display: block;
+	}
+	.non {
+		display: none;
+	}
+}
+@media screen and (max-width: 450px) { /*urano aumenta su tamaño y desaparece en preparación de neptuno*/
 	.uranus {
-	width: 144px;
-	height: 144px;
+		animation: 1s crecedesaparece;
+		animation-fill-mode: forwards;
 	}
-	.neptune {
-	width: 130px;
-	height: 130px;
+}
+@media screen and (max-width: 401px) { /*se vuelve a mostrar neptuno con las últimas medidas heredadas, desaparece urano*/
+	.item:nth-child(8) { /*desaparece elemento urano*/
+	display: none;
 	}
-	.pluton {
-	width: 14px;
-	height: 14px;
+	.item:nth-child(9) { /*aparece elemento neptuno*/
+	display: flex;
 	}
-	
-}*/
+}
+@media screen and (max-width: 400px) { /*transformacion aumento neptuno*/
+	.neptune { /*al aparecer urano nuevamente comienza a crecer*/
+	width: 350px !important;
+	height: 350px;
+	animation: 1s crece;
+	animation-fill-mode: forwards;
+	}
+	#info-ne { /*aparece info de neptuno*/
+		display: block;
+	}
+}
+/*	-	-	-	-	-	-	-	-	-	-	sección de animaciones	-	-	-	-	-	-	-	-	-	*/
+@keyframes crecedesaparece {
+	0% {
+		transform: scale(1);
+		opacity: 1;
+	}
+	100% {
+		transform: scale(10);
+		opacity: 0;
+	}
+}
+@keyframes aparece {
+	0% {
+		transform: scale(0);
+		opacity: .7;
+	}
+	100% {
+		transform: scale(1);
+		opacity: 1;
+	}
+}
