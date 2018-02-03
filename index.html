@@ -10,6 +10,11 @@
 		<div id="line-h" class="line-h"></div>
 		<div id="line-w" class="line-w"></div>
 		<div id="width-display" class="width-display"><p>Tamaño de ventana:</p><span id="value"></span></div>
+		<div id="mensaje" class="mensaje">
+			<div class="sub-a"><h1>&lt; &lt;</h1></div>
+			<div class="sub-b"><h2>¡Redimensiona la pantalla para ver la magia de CSS y Media-Queries!</h2></div>
+			<div class="sub-a"><h1>&gt; &gt;</h1></div>
+		</div>
 		<div id="container" class="display container">
 			<div class="item"><div id="sun" class="guia"></div><p id="su" class="p-name">Sol</p><div class="sun transition"></div></div>
 			<div class="item"><div id="mercury" class="guia"></div><p id="me" class="p-name">Mercurio</p><div class="mercury transition"></div></div>
@@ -52,6 +57,8 @@
 	var line_w = document.getElementById('line-w');
 
 	var width_display = document.getElementById('width-display');
+
+	var mensaje = document.getElementById('mensaje');
 
 	var container = document.getElementById('container');	
 
@@ -191,10 +198,19 @@
 	cc.addEventListener('change', showCenters);
 	ci.addEventListener('change', showInfo);
 
+	var widthInicial = window.innerWidth;
+	var estado = 0;
+
 	function pantalla () {
 		width = window.innerWidth;
+		if(width != widthInicial) {
+			estado = 1;
+		}
+		if(estado == 1) {
+			mensaje.classList.add('none');
+		}
 		console.log('Width: ' + width);
-		value.innerHTML = ' '+ width + 'px';		
+		value.innerHTML = ' '+ width + 'px';	
 	}
 	pantalla();
 
@@ -208,6 +224,6 @@
 	    }
 	  });
 	</script>
-	<link rel="stylesheet" type="text/css" href="css/estilos.min.css"/>
+	<link rel="stylesheet" type="text/css" href="css/estilos.css"/>
 </body>
 </html>

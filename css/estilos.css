@@ -34,6 +34,50 @@ body {
 	width: 100%;
 	top: 50%;
 }
+.mensaje {
+	position: absolute;
+	display: flex;
+	flex-flow: column wrap;
+	justify-content: center;
+	box-sizing: border-box;
+	top: calc(70% - 60px);
+	right: 50px;
+	z-index: 8;
+	background: rgba(0,0,0,.5);
+	color: #666;
+	border-radius: 30px;
+	padding: 10px;
+	height: 120px;
+	max-width: 600px;
+	animation: 1s mensaje alternate;
+	animation-iteration-count: infinite;
+	animation-timing-function: ease-in-out;
+}
+.sub-a {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 20%;
+	height: 100%;
+	/*background: red;*/
+}
+.sub-b {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 60%;
+	height: 100%;
+	/*background: blue;*/
+}
+.mensaje h1 {
+	color: yellow;
+	font-size: 40px;
+}
+.mensaje h2 {
+	font-size: 15px;
+	color: skyblue;
+	font-weight: 100;
+}
 .width-display {
 	position: fixed;
 	display: flex;
@@ -487,6 +531,7 @@ label {
 	width: 0px !important;
 	height: 0px;
 	}
+}
 @media screen and (max-width: 1200px) { /*se muestra sol mientras crece*/
 	.sun {
 		width: 650px !important;
@@ -697,6 +742,9 @@ label {
 	.non {
 		display: none;
 	}
+	.mensaje {
+		display: none;
+	}
 }
 @media screen and (max-width: 450px) { /*urano aumenta su tamaño y desaparece en preparación de neptuno*/
 	.uranus {
@@ -727,6 +775,14 @@ label {
 	}
 }
 /*	-	-	-	-	-	-	-	-	-	-	sección de animaciones	-	-	-	-	-	-	-	-	-	*/
+@keyframes mensaje {
+	0% {
+		transform: translateX(-10px);
+	}
+	100% {
+		transform: translateX(10px);
+	}
+}
 @keyframes crecedesaparece {
 	0% {
 		transform: scale(1);
