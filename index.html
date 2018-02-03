@@ -8,50 +8,52 @@
 	<script type="text/javascript" src="js/scripts.js"></script>
 </head>
 <body>
-	<!-- <div class="title"><span>El sistema solar</span></div> -->
 	<div class="background">
-		<div id="line-h"></div>
-		<div id="line-w"></div>
-		<div class="width-display"><p>Tamaño de ventana:</p><span id="value"></span></div>
+		<div id="line-h" class="line-h"></div>
+		<div id="line-w" class="line-w"></div>
+		<div id="width-display" class="width-display"><p>Tamaño de ventana:</p><span id="value"></span></div>
 		<div id="container" class="display container">
-			<div class="item"><div id="sun"></div><p id="su" class="p-name none">Sol</p><div class="sun transition"><div id="info-su" class="info-item-planet none-info"><p>Nombre: <span>Sol</span></p><p>Tipo: <span>Estrella</span></p></div></div></div>
-			<div class="item"><div id="mercury"></div><p id="me" class="p-name none">Mercurio</p><div class="mercury transition"><div id="info-me" class="info-item-planet none-info"><p>Nombre: <span>Mercurio</span></p><p>Tipo: <span>Planeta</span></p></div></div></div>
-			<div class="item"><div id="venus"></div><p id="ve" class="p-name none">Venus</p><div class="venus transition"><div id="info-ve" class="info-item-planet none-info"><p>Nombre: <span>Venus</span></p><p>Tipo: <span>Planeta</span></p></div></div></div>
-			<div class="item"><div id="earth"></div><p id="ea" class="p-name none">Tierra</p><div class="earth transition"><div id="info-ea" class="info-item-planet none-info"><p>Nombre: <span>Tierra</span></p><p>Tipo: <span>Planeta</span></p></div></div></div>
-			<div class="item"><div id="mars"></div><p id="ma" class="p-name none">Marte</p><div class="mars transition"><div id="info-ma" class="info-item-planet none-info"><p>Nombre: <span>Marte</span></p><p>Tipo: <span>Planeta</span></p></div></div></div>
-			<div class="item"><div id="jupiter"></div><p id="ju" class="p-name none">Júpiter</p><div class="jupiter transition"><div id="info-ju" class="info-item-planet none-info"><p>Nombre: <span>Júpiter</span></p><p>Tipo: <span>Planeta</span></p></div></div></div>
-			<div class="item"><div id="saturn"></div><p id="sa" class="p-name none">Saturno</p><div class="saturn transition"><div id="info-sa" class="info-item-planet none-info"><p>Nombre: <span>Saturno</span></p><p>Tipo: <span>Planeta</span></p></div></div></div>
-			<div class="item"><div id="uranus"></div><p id="ur" class="p-name none">Urano</p><div class="uranus transition"><div id="info-ur" class="info-item-planet none-info"><p>Nombre: <span>Urano</span></p><p>Tipo: <span>Planeta</span></p></div></div></div>
-			<div class="item"><div id="neptune"></div><p id="ne" class="p-name none">Neptuno</p><div class="neptune transition"><div id="info-ne" class="info-item-planet none-info"><p>Nombre: <span>Neptuno</span></p><p>Tipo: <span>Planeta</span></p></div></div></div>
-			<!-- <div class="item"><div id="pluton"></div><p id="pl" class="p-name none">Plutón</p><div class="display pluton transition"></div></div> -->
+			<div class="item"><div id="sun" class="guia"></div><p id="su" class="p-name">Sol</p><div class="sun transition"></div></div>
+			<div class="item"><div id="mercury" class="guia"></div><p id="me" class="p-name">Mercurio</p><div class="mercury transition"></div></div>
+			<div class="item"><div id="venus" class="guia"></div><p id="ve" class="p-name">Venus</p><div class="venus transition"></div></div>
+			<div class="item"><div id="earth" class="guia"></div><p id="ea" class="p-name">Tierra</p><div class="earth transition"></div></div>
+			<div class="item"><div id="mars" class="guia"></div><p id="ma" class="p-name">Marte</p><div class="mars transition"></div></div>
+			<div class="item"><div id="jupiter" class="guia"></div><p id="ju" class="p-name">Júpiter</p><div class="jupiter transition"></div></div>
+			<div class="item"><div id="saturn" class="guia"></div><p id="sa" class="p-name">Saturno</p><div class="saturn transition"></div></div>
+			<div class="item"><div id="uranus" class="guia"></div><p id="ur" class="p-name">Urano</p><div class="uranus transition"></div></div>
+			<div class="item"><div id="neptune" class="guia"></div><p id="ne" class="p-name">Neptuno</p><div class="neptune transition"></div></div>
+			<div id="info-su" class="info-item-planet"><p>Nombre: <span>Sol.</span></p><p>Tipo: <span>Estrella G.</span></p><p>Diámetro (km): <span>1.394,000.</span></p><p>Temperatura de la superficie (ºC): <span>5505.</span></p></div>
+			<div id="info-me" class="info-item-planet"><p>Nombre: <span>Mercurio.</span></p><p>Tipo: <span>Planeta.</span></p><p>Distancia al sol (km): <span>57.909.175.</span></p><p>Periodo de rotación (días): <span>58,646225.</span></p><p>Periodo orbital (años): <span>0,2408467.</span></p><p>Temperatura media de superficie (ºC): <span>166,86</span></p><p>Composición de la atmósfera: <span>He | Na+ | P+.</span></p><p>Número de lunas: <span>0.</span></p></div>
+			<div id="info-ve" class="info-item-planet"><p>Nombre: <span>Venus.</span></p><p>Tipo: <span>Planeta.</span></p><p>Distancia al sol (km): <span>108.208.930.</span></p><p>Periodo de rotación (días): <span>-243,0187 n.4.</span></p><p>Periodo orbital (años): <span>0,61519726.</span></p><p>Temperatura media de superficie (ºC): <span>456,85.</span></p><p>Composición de la atmósfera: <span>96% CO2 | 3% N2 | 0,1% H2O.</span></p><p>Número de lunas: <span>0.</span></p></div>
+			<div id="info-ea" class="info-item-planet"><p>Nombre: <span>Tierra.</span></p><p>Tipo: <span>Planeta.</span></p><p>Distancia al sol (km): <span>149.597.870.</span></p><p>Periodo de rotación (días): <span>0,99726968.</span></p><p>Periodo orbital (años): <span>1,0000174.</span></p><p>Temperatura media de superficie (ºC): <span>14,85.</span></p><p>Composición de la atmósfera: <span>78% N2 | 21% O2 | 1% Ar.</span></p><p>Número de lunas: <span>1.</span></p></div>
+			<div id="info-ma" class="info-item-planet"><p>Nombre: <span>Marte.</span></p><p>Tipo: <span>Planeta.</span></p><p>Distancia al sol (km): <span>227.936.640.</span></p><p>Periodo de rotación (días): <span>1,02595675.</span></p><p>Periodo orbital (años): <span>1,8808476.</span></p><p>Temperatura media de superficie (ºC): <span>-87,15 / -5,15.</span></p><p>Composición de la atmósfera: <span>95% CO2 | 3% N2 | 1,6% Ar.</span></p><p>Número de lunas: <span>2.</span></p></div>
+			<div id="info-ju" class="info-item-planet"><p>Nombre: <span>Júpiter.</span></p><p>Tipo: <span>Planeta.</span></p><p>Distancia al sol (km): <span>778.412.010.</span></p><p>Periodo de rotación (días): <span>0,41354.</span></p><p>Periodo orbital (años): <span>11,862615.</span></p><p>Temperatura media de superficie (ºC): <span>-121,15.</span></p><p>Composición de la atmósfera: <span>90% H | 10 He | Trazas de CH4.</span></p><p>Número de lunas: <span>67.</span></p></div>
+			<div id="info-sa" class="info-item-planet"><p>Nombre: <span>Saturno.</span></p><p>Tipo: <span>Planeta.</span></p><p>Distancia al sol (km): <span>1.426.725.400.</span></p><p>Periodo de rotación (días): <span>0,44401.</span></p><p>Periodo orbital (años): <span>29,447498.</span></p><p>Temperatura media de superficie (ºC): <span>-139,15.</span></p><p>Composición de la atmósfera: <span>96%H | 3%He | 0,5% CH4.</span></p><p>Número de lunas: <span>62.</span></p></div>
+			<div id="info-ur" class="info-item-planet"><p>Nombre: <span>Urano.</span></p><p>Tipo: <span>Planeta.</span></p><p>Distancia al sol (km): <span>2.870.972.200.</span></p><p>Periodo de rotación (días): <span>-0,71833 n.4.</span></p><p>Periodo orbital (años): <span>84,016846.</span></p><p>Temperatura media de superficie (ºC): <span>-197,15	</span></p><p>Composición de la atmósfera: <span>84% H2 | 14%He | 2% CH4.</span></p><p>Número de lunas: <span>27.</span></p></div>
+			<div id="info-ne" class="info-item-planet"><p>Nombre: <span>Neptuno.</span></p><p>Tipo: <span>Planeta.</span></p><p>Distancia al sol (km): <span>4.498.252.900.</span></p><p>Periodo de rotación (días): <span>0,67125.</span></p><p>Periodo orbital (años): <span>164,79132.</span></p><p>Temperatura media de superficie (ºC): <span>-220,15.</span></p><p>Composición de la atmósfera: <span>75% H2 | 25%He | 1% CH4.</span></p><p>Número de lunas: <span>14.</span></p></div>
 		</div>
 		<div class="info">
-			<div id="info-ss" class="info-item none-info"><p>Nombre: <span>Sistema solar</span></p><p>Localización: <span>Nube Interestelar Local, Burbuja Local, Brazo de Orión, Vía Láctea.</span></p><p>Estrella más cercana: <span>Próxima Centauri (4,22 al).</span></p><p>Estrellas: <span>1 (Sol)</span></p><p>Planetas: <span>8 (Mercurio, Venus, Tierra, Marte, Júpiter, Saturno, Urano, Neptuno, Pluton).</span></p></div>
+			<div id="info-ss" class="info-item"><p>Nombre: <span>Sistema solar.</span></p><p>Localización: <span>Nube Interestelar Local, Burbuja Local, Brazo de Orión, Vía Láctea.</span></p><p>Estrella más cercana: <span>Próxima Centauri (4,22 al).</span></p><p>Estrellas: <span>1 (Sol).</span></p><p>Planetas: <span>8 (Mercurio, Venus, Tierra, Marte, Júpiter, Saturno, Urano, Neptuno, Pluton).</span></p><p><span>Fuente: Wikipedia</span></p></div>
 		</div>
 		<div id="menu" class="menu">
 			<div id="pestana" class="pestana"></div>
 			<p class="non">Mostrar:</p>
 			<ul>
-				<li><input type="checkbox" id="cn" name="nombres"><label for="cn">Nombres</label></li>
-				<li><input type="checkbox" id="cg" name="guias"><label for="cg">Guías</label></li>
-				<li><input type="checkbox" id="cc" name="centros"><label for="cc">Centro</label></li>
-				<li><input type="checkbox" id="ci" name="info"><label for="ci">Info</label></li>
+				<li><input type="checkbox" id="cn" name="nombres" checked="checked"><label for="cn">Nombres</label></li>
+				<li><input type="checkbox" id="cg" name="guias" checked="checked"><label for="cg">Guías</label></li>
+				<li><input type="checkbox" id="cc" name="centros" checked="checked"><label for="cc">Centro</label></li>
+				<li><input type="checkbox" id="ci" name="info" checked="checked"><label for="ci">Info</label></li>
 			</ul>
 		</div>
 	</div>
-	
-
-<!-- <div id="info-ss" class="info-item-planet"><p>Nombre: <span>Sistema solar</span></p><p>Localización: <span>Nube Interestelar Local, Burbuja Local, Brazo de Orión, Vía Láctea.</span></p><p>Estrella más cercana: <span>Próxima Centauri (4,22 al).</span></p><p>Estrellas: <span>1</span></p><p>Planetas: <span>8</span></p></div> -->
-
-
 <script type="text/javascript">
-
-
 	var width = window.addEventListener('resize', pantalla);
 	var value = document.getElementById('value');
 
 	var line_h = document.getElementById('line-h');
 	var line_w = document.getElementById('line-w');
+
+	var width_display = document.getElementById('width-display');
 
 	var container = document.getElementById('container');	
 
@@ -64,7 +66,6 @@
 	var saturn = document.getElementById('saturn');
 	var uranus = document.getElementById('uranus');
 	var neptune = document.getElementById('neptune');
-	// var pluton = document.getElementById('pluton');
 
 	var su = document.getElementById('su');
 	var me = document.getElementById('me');
@@ -75,7 +76,6 @@
 	var sa = document.getElementById('sa');
 	var ur = document.getElementById('ur');
 	var ne = document.getElementById('ne');
-	// var pl = document.getElementById('pl');
 	
 	var info_su = document.getElementById('info-su');
 	var info_me = document.getElementById('info-me');
@@ -95,9 +95,6 @@
 	var cg = document.getElementById('cg');
 	var cc = document.getElementById('cc');
 	var ci = document.getElementById('ci');
-	// var nuevo, anterior, ref;
-	// anterior=0;
-	// ref=1;
 
 	function toggleMenu () {
 		menu.classList.toggle('active');
@@ -114,7 +111,6 @@
 			sa.classList.remove('none');
 			ur.classList.remove('none');
 			ne.classList.remove('none');
-			// pl.classList.remove('none');
 		} else {
 			su.classList.add('none');
 			me.classList.add('none');
@@ -125,7 +121,6 @@
 			sa.classList.add('none');
 			ur.classList.add('none');
 			ne.classList.add('none');
-			// pl.classList.add('none');
 		}
 	}
 
@@ -140,7 +135,6 @@
 			saturn.classList.add('guia');
 			uranus.classList.add('guia');
 			neptune.classList.add('guia');
-			// pluton.classList.add('guia');
 		} else {
 			sun.classList.remove('guia');
 			mercury.classList.remove('guia');
@@ -151,7 +145,6 @@
 			saturn.classList.remove('guia');
 			uranus.classList.remove('guia');
 			neptune.classList.remove('guia');
-			// pluton.classList.remove('guia');
 		}
 	}
 
@@ -163,7 +156,6 @@
 			line_h.classList.remove('line-h');
 			line_w.classList.remove('line-w');
 		}
-
 	}
 
 	function showInfo () {
@@ -178,6 +170,7 @@
 			info_ur.classList.remove('none-info');
 			info_ne.classList.remove('none-info');
 			info_ss.classList.remove('none-info');
+			width_display.classList.remove('none-info');
 		} else {
 			info_su.classList.add('none-info');
 			info_me.classList.add('none-info');
@@ -188,8 +181,8 @@
 			info_sa.classList.add('none-info');
 			info_ur.classList.add('none-info');
 			info_ss.classList.add('none-info');
+			width_display.classList.add('none-info');
 		}
-		
 	}
 
 
@@ -203,20 +196,7 @@
 	function pantalla () {
 		width = window.innerWidth;
 		console.log('Width: ' + width);
-		value.innerHTML = ' '+ width + 'px';
-		
-		// nuevo=width;
-		
-
-		// if (nuevo<anterior){
-			// ref=ref*1.2;
-			// container.style.width = ref + 'px';
-			// console.log("si es: " + container.style.width);
-		// }
-		
-
-		// anterior=width;
-		
+		value.innerHTML = ' '+ width + 'px';		
 	}
 	pantalla();
 
